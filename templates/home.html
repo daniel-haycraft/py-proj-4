@@ -11,10 +11,53 @@
     <title>My App</title>
 </head>
 <body>
+
     <div>
-    
-    </div>
     {%block body%}
-    {%endblock%}
+    <form action="{{ url_for('add_team') }}" method="POST">
+        {{team_form.team_name.label()}}
+        {{team_form.team_name(class="form-control")}} 
+        <br>
+        {{team_form.submit}}
+        <br>
+        {{team_form.csrf_token()}}
+    </form>
+</div>
+
+<div>
+<form action="{{ url_for('add_project') }}" method="POST">
+    {{project_form.project_name.label}}
+    {{project_form.project_name}}
+    <br>
+    {{project_form.description.label}}
+    <br>
+    {{project_form.description}}
+    <br>
+    {{project_form.completed.label}}
+    {{project_form.completed}}
+    <br>
+    {{project_form.team_selection.label}}
+    {{project_form.team_selection}}
+    <br>
+    {{project_form.submit}}
+    {{project_form.csrf_token()}}
+</form>
+</div>
+
+
+<div>
+<form action="{{ url_for('add_user') }}" method="POST">
+   {{form.username.label}}
+     {{form.username}}
+     <br>
+    {{form.password.label}}
+     {{form.password}}
+     <br>
+     {{form.submit}}
+     <br>
+     {{form.csrf_token()}}
+     </form>
+    </div>
 </body>
 </html>
+{%endblock%}

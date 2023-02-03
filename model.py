@@ -28,7 +28,7 @@ class Team(db.Model):
 
     def __init__(self, team_name, user_id):
         self.team_name = team_name
-        self.user_id = int(user_id)
+        self.user_id = user_id
 
 class Project(db.Model):
 
@@ -36,7 +36,7 @@ class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     project_name = db.Column(db.String(255), nullable = False)
-    description = db.Column(db.String(255), nullable = True, default = 'no desciption')
+    description = db.Column(db.String(255), nullable = True)
     completed = db.Column(db.Boolean, default = False)
     team_id = db.Column(db.Integer, db.ForeignKey("teams.id"), nullable = False)
 

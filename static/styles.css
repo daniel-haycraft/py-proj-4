@@ -1,0 +1,9 @@
+html, body{
+    height: 360px;
+    width: 820px;
+}
+
+p{
+   background-color: red;
+   color: red;
+}
